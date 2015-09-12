@@ -22,7 +22,11 @@
 
 ;; set the theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'base16-ocean-dark t nil)
+(load-theme 'base16-tomorrow-dark t)
+;; (load-theme 'base16-londontube-light t)
+;; (global-hl-line-mode 1)
+;; (set-face-background 'hl-line "#F7F7F7")
+
 
 ;; cursor
 (setq-default cursor-type 'bar)
@@ -34,10 +38,10 @@
 (setq mouse-wheel-scroll-amount '(0.001))
 
 ;; cua mode
-(cua-mode t)
-(setq cua-auto-tabify-rectangles nil
-      cua-keep-region-after-copy t)
-(transient-mark-mode 1)
+;;(cua-mode t)
+;; (setq cua-auto-tabify-rectangles nil
+;;      cua-keep-region-after-copy t)
+;; (transient-mark-mode 1)
 
 (defun emacs-d (filename)
   "Expand FILENAME relative to `user-emacs-directory'."
@@ -94,8 +98,8 @@
 
 ;; os x
 (when (string= system-type "darwin")
-  (setq mac-option-modifier 'meta
-        mac-command-modifier 'super
+  (setq mac-option-modifier 'super
+        mac-command-modifier 'meta
         mac-allow-anti-aliasing t
         delete-by-moving-to-trash t
         browse-url-browser-function 'browse-url-default-macosx-browser
@@ -181,8 +185,8 @@
 (load (emacs-d "vendor/window_numbering"))
 (window-numbering-mode 1)
 ;; folding mode
-(load (emacs-d "vendor/folding"))
-(folding-mode-add-find-file-hook)
+;; (load (emacs-d "vendor/folding"))
+;; (folding-mode-add-find-file-hook)
 
 (load (emacs-d "vendor/jsfmt"))
 (add-hook 'before-save-hook 'jsfmt-before-save)
@@ -190,8 +194,8 @@
 ;; custom functions
 (load (emacs-d "functions"))
 ;; keybindings
-(load (emacs-d "keybindings"))
-
+;; (load (emacs-d "keybindings"))
+;;
 (load (emacs-d "vendor/oracle"))
 
 ;; configure jekyll blog
@@ -203,18 +207,27 @@
 (unless (server-running-p)
   (server-start))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("d3a86848a5e9bf123f3dd3bf82ab96995837b50f780dd7d5f65dc72c2b81a955" "83279c1d867646c5eea8a804a67a23e581b9b3b67f007e7831279ed3a4de9466" "d7e434a3c19f87fa00b945edfaedc9a21a6e436a7814c23277d4112ad83b5e85" "e688cf46fd8d8fcb4e7ad683045fbf314716f184779f3f087ef226a4e170837a" "b953823053c6372fafde04957ab6d482021cc3a0f4b279f2868180c3ca56ca59" "d725097d2547e9205ab6c8b034d6971c2f0fc64ae5f357b61b7de411ca3e7ab2" "cd95da9e526850b3df2d1b58410d586386bfc0182a2aaca3f33d6cd8548c091a" "27890155f81d23512a9933f4ac6110e94de6266e948fd464eda3423c799713e2" "90e4b4a339776e635a78d398118cb782c87810cb384f1d1223da82b612338046" "90edd91338ebfdfcd52ecd4025f1c7f731aced4c9c49ed28cfbebb3a3654840b" "cda6cb17953b3780294fa6688b3fe0d3d12c1ef019456333e3d5af01d4d6c054" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "978ff9496928cc94639cb1084004bf64235c5c7fb0cfbcc38a3871eb95fa88f6" "bc89fda3d232a3daa4eb3a9f87d6ffe1272fea46e4cf86686d9e8078e4209e2c" "96b023d1a6e796bab61b472f4379656bcac67b3af4e565d9fb1b6b7989356610" "fc3ba70e150efbe45db40b4b4886fc75716b4f3b1247a4b96e5be7cfbe4bc9e1" "f41fd682a3cd1e16796068a2ca96e82cfd274e58b978156da0acce4d56f2b0d5" "42ac06835f95bc0a734c21c61aeca4286ddd881793364b4e9bc2e7bb8b6cf848" "a99e7c91236b2aba4cd374080c73f390c55173c5a1b4ac662eeb3172b60a9814" "96efbabfb6516f7375cdf85e7781fe7b7249b6e8114676d65337a1ffe78b78d9" "9bac44c2b4dfbb723906b8c491ec06801feb57aa60448d047dbfdbd1a8650897" "f0a99f53cbf7b004ba0c1760aa14fd70f2eabafe4e62a2b3cf5cabae8203113b" "53e29ea3d0251198924328fd943d6ead860e9f47af8d22f0b764d11168455a8e" default)))
- '(powerline-default-separator (quote utf-8)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(custom-safe-themes
+;;    (quote
+;;     ("e0162042769535430ee3c51f8a775c353b37906fa4ad47d0861d9497b95186dd" "9f3a4edb56d094366afed2a9ba3311bbced0f32ca44a47a765d8ef4ce5b8e4ea" "e7ec0cc3ce134cc0bd420b98573bbd339a908ac24162b8034c98e1ba5ee1f9f6" "d3a86848a5e9bf123f3dd3bf82ab96995837b50f780dd7d5f65dc72c2b81a955" "83279c1d867646c5eea8a804a67a23e581b9b3b67f007e7831279ed3a4de9466" "d7e434a3c19f87fa00b945edfaedc9a21a6e436a7814c23277d4112ad83b5e85" "e688cf46fd8d8fcb4e7ad683045fbf314716f184779f3f087ef226a4e170837a" "b953823053c6372fafde04957ab6d482021cc3a0f4b279f2868180c3ca56ca59" "d725097d2547e9205ab6c8b034d6971c2f0fc64ae5f357b61b7de411ca3e7ab2" "cd95da9e526850b3df2d1b58410d586386bfc0182a2aaca3f33d6cd8548c091a" "27890155f81d23512a9933f4ac6110e94de6266e948fd464eda3423c799713e2" "90e4b4a339776e635a78d398118cb782c87810cb384f1d1223da82b612338046" "90edd91338ebfdfcd52ecd4025f1c7f731aced4c9c49ed28cfbebb3a3654840b" "cda6cb17953b3780294fa6688b3fe0d3d12c1ef019456333e3d5af01d4d6c054" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "978ff9496928cc94639cb1084004bf64235c5c7fb0cfbcc38a3871eb95fa88f6" "bc89fda3d232a3daa4eb3a9f87d6ffe1272fea46e4cf86686d9e8078e4209e2c" "96b023d1a6e796bab61b472f4379656bcac67b3af4e565d9fb1b6b7989356610" "fc3ba70e150efbe45db40b4b4886fc75716b4f3b1247a4b96e5be7cfbe4bc9e1" "f41fd682a3cd1e16796068a2ca96e82cfd274e58b978156da0acce4d56f2b0d5" "42ac06835f95bc0a734c21c61aeca4286ddd881793364b4e9bc2e7bb8b6cf848" "a99e7c91236b2aba4cd374080c73f390c55173c5a1b4ac662eeb3172b60a9814" "96efbabfb6516f7375cdf85e7781fe7b7249b6e8114676d65337a1ffe78b78d9" "9bac44c2b4dfbb723906b8c491ec06801feb57aa60448d047dbfdbd1a8650897" "f0a99f53cbf7b004ba0c1760aa14fd70f2eabafe4e62a2b3cf5cabae8203113b" "53e29ea3d0251198924328fd943d6ead860e9f47af8d22f0b764d11168455a8e" default)))
+;;  '(powerline-default-separator (quote utf-8)))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  )
+(add-to-list 'load-path "/Users/jonpoler/.emacs.d/.cask/24.5.1/elpa/go-mode-20150503.258")
+(require 'go-mode-autoloads)
+(add-hook 'before-save-hook 'gofmt-before-save)
+
+;;;; undo-tree
+(global-undo-tree-mode t)
+(setq undo-tree-visualizer-relative-timestamps t)
+(setq undo-tree-visualizer-timestamps t)
+(windmove-default-keybindings)

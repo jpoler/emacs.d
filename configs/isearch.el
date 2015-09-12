@@ -10,4 +10,3 @@
     (goto-char isearch-other-end)))
 
 ;; enable pasting text into the isearch minibuffer
-(define-key isearch-mode-map (kbd "C-v") 'isearch-yank-kill)
