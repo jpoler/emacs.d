@@ -231,3 +231,8 @@
 (setq undo-tree-visualizer-relative-timestamps t)
 (setq undo-tree-visualizer-timestamps t)
 (windmove-default-keybindings)
+
+(load-library "hideshow")
+(global-set-key (kbd "C--") 'hs-hide-all)
+(global-set-key (kbd "C-=") 'hs-show-all)
+(add-hook 'go-mode-hook 'hs-minor-mode)
